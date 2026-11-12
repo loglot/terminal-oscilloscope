@@ -9,7 +9,7 @@ import osc/[scope, audio]
 # ── Configuration ────────────────────────────────────────────────────
 
 const
-  Decay = 0.85
+  Decay = 0.45
   Beam = 0.4
   Bloom = 0.08
   HotGlow = 0.7

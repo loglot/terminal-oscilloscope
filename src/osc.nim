@@ -12,17 +12,17 @@ import osc/[scope, audio]
 
 const
   # Phosphor physics
-  Decay = 0.85           # persistence per frame (0.0–1.0)
+  Decay = 0           # persistence per frame (0.0–1.0)
   Beam = 0.4             # intensity at beam impact
-  Bloom = 0.08           # horizontal glow spread
+  Bloom = 0.02           # horizontal glow spread
 
   # Phosphor glow thresholds
-  HotGlow = 0.7          # white-hot beam core
-  WarmGlow = 0.4         # bright phosphor
-  CoolGlow = 0.15        # dim persistence trail
+  HotGlow = 0.9          # white-hot beam core
+  WarmGlow = 0.85         # bright phosphor
+  CoolGlow = 0.84        # dim persistence trail
 
   # Palette: green, amber, cyan, blue, white, red
-  Palette = "green"
+  Palette = "amber"
 
 # ── Audio thread via Channel ─────────────────────────────────────────
 
@@ -142,6 +142,8 @@ proc main() =
 
     sleep(16)
 
+    scope.mode = ModeXY
+    scope.gain = 5
     case readKey()
     of 'q', '\x1b': running = false
     of 'm': scope.mode = if scope.mode == ModeYT: ModeXY else: ModeYT
