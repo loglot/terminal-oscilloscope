@@ -1,3 +1,20 @@
+# Fork Information
+## What this Fork Changes
+- removed Y-T mode
+- set default color to amber
+- moved gain to be a set value in configuration
+### THIS IS INTENDED TO BE USED IN A WALLPAPER, IF YOU WANT A GENERAL OSCILLOSCOPE, PLEASE USE THE ORIGINAL SOFTWARE
+## Quick Install
+if you're here, you're probably coming from my wallpaper, in which case you just want a fairly quick installation
+
+Requires [Nim](https://nim-lang.org/) 2.x.
+```bash
+git clone https://github.com/loglot/terminal-oscilloscope.git
+cd terminal-oscilloscope
+nim c -d:release --threads:on -o:osc-bg src/osc.nim
+sudo cp ./osc-bg /bin/osc-bg
+```
+
 # terminal-oscilloscope
 
 A terminal-based oscilloscope with CRT phosphor physics, written in Nim. Zero dependencies — 200KB binary, just libc.
@@ -50,8 +67,6 @@ sudo ln -s $(pwd)/osc /usr/local/bin/osc
 
 | Key | Action |
 |-----|--------|
-| `m` | Toggle Y-T / X-Y mode |
-| `+` / `-` | Increase / decrease gain (amplitude) |
 | `]` / `[` | Zoom in / out time axis |
 | `q` | Quit (with CRT shutdown effect) |
 

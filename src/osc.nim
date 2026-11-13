@@ -21,6 +21,8 @@ const
   WarmGlow = 0.85         # bright phosphor
   CoolGlow = 0.84        # dim persistence trail
 
+  Gain=5
+  
   # Palette: green, amber, cyan, blue, white, red
   Palette = "amber"
 
@@ -143,12 +145,9 @@ proc main() =
     sleep(16)
 
     scope.mode = ModeXY
-    scope.gain = 5
+    scope.gain = Gain
     case readKey()
     of 'q', '\x1b': running = false
-    of 'm': scope.mode = if scope.mode == ModeYT: ModeXY else: ModeYT
-    of '+', '=': scope.gain = min(scope.gain * 1.3, 20.0)
-    of '-': scope.gain = max(scope.gain / 1.3, 0.5)
     of ']': scope.timeDiv = min(scope.timeDiv * 1.5, 16.0)
     of '[': scope.timeDiv = max(scope.timeDiv / 1.5, 0.25)
     else: discard
